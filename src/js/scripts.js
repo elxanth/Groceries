@@ -68,6 +68,15 @@ function updateMealList() {
                 <label for="meal-${index}"><strong>${meal.name}</strong></label> <br> 
                 Zutaten: ${meal.ingredients.map(ingredient => 
                     ingredient.quantity ? `${ingredient.quantity} ${ingredient.unit} ${ingredient.name}` : ingredient.name).join(', ')}
+                <br>
+                <label for="meal-count-${index}">Anzahl pro Woche:</label>
+                <select id="meal-count-${index}" class="meal-count">
+                    <option value="1">1x</option>
+                    <option value="2">2x</option>
+                    <option value="3">3x</option>
+                    <option value="4">4x</option>
+                    <option value="5">5x</option>
+                </select>
                 <div class="button-container">
                     <button class="edit-button" onclick="editMeal(${index})">Bearbeiten</button>
                     <button class="delete-button" onclick="deleteMeal(${index})">Löschen</button>
@@ -104,14 +113,15 @@ function generateShoppingList() {
     checkboxes.forEach(checkbox => {
         const mealIndex = checkbox.getAttribute('data-index'); // Korrekte Indexreferenz
         const meal = meals[mealIndex]; // Das gewählte Gericht abrufen
+        const count = parseInt(document.getElementById(`meal-count-${mealIndex}`).value); // Anzahl wie oft das Gericht gemacht wird
 
         meal.ingredients.forEach(ingredient => {
             const key = ingredient.name; // Hier nur den Namen der Zutat verwenden
             if (ingredientsMap[key]) {
-                ingredientsMap[key].quantity += (parseFloat(ingredient.quantity) || 0); // Summiere die Menge, wenn sie vorhanden ist
+                ingredientsMap[key].quantity += (parseFloat(ingredient.quantity) || 0) * count; // Summiere die Menge, multipliziert mit der Anzahl
             } else {
                 ingredientsMap[key] = {
-                    quantity: (parseFloat(ingredient.quantity) || 0),
+                    quantity: (parseFloat(ingredient.quantity) || 0) * count,
                     unit: ingredient.unit || ''
                 };
             }

@@ -25,10 +25,13 @@ input, select, textarea {
     box-sizing: border-box; /* Bezieht Padding und Border in die Gesamtgröße ein */
 }
 
+select {
+    width: 50px;
+}
 
 button {
     margin-top: 10px;
-    padding: 10px 15px;
+    padding: 0px 10px;
     background-color: #088A85;
     color: white;
     letter-spacing: 1.3px;
@@ -36,7 +39,7 @@ button {
     border: none;
     cursor: pointer;
     border-radius: 7px;
-    height: 50px; /* Gemeinsame Höhe für alle Buttons */
+    height: 25px;
 }
 
 button:hover {
@@ -72,7 +75,7 @@ li {
     border: none; /* Keine Ränder */
     cursor: pointer; /* Zeiger ändern beim Hover */
     margin-right: 3px;
-    height: 50px; /* Gleiche Höhe wie die anderen Buttons */
+   
 }
 
 .delete-button {
@@ -82,7 +85,7 @@ li {
     border: none; /* Keine Ränder */
     cursor: pointer; /* Zeiger ändern beim Hover */
     margin-left: 3px; /* Abstand zwischen den Buttons */
-    height: 50px; /* Gleiche Höhe wie die anderen Buttons */
+    
 }
 
 .meal-item:hover .edit-button,
