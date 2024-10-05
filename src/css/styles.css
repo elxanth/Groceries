@@ -28,6 +28,7 @@ button {
     border: none;
     cursor: pointer;
     border-radius: 7px;
+    height: 50px; /* Gemeinsame Höhe für alle Buttons */
 }
 
 button:hover {
@@ -62,8 +63,8 @@ li {
     color: white; /* Textfarbe */
     border: none; /* Keine Ränder */
     cursor: pointer; /* Zeiger ändern beim Hover */
-   /* Abstand zwischen den Buttons */
     margin-right: 3px;
+    height: 50px; /* Gleiche Höhe wie die anderen Buttons */
 }
 
 .delete-button {
@@ -73,21 +74,28 @@ li {
     border: none; /* Keine Ränder */
     cursor: pointer; /* Zeiger ändern beim Hover */
     margin-left: 3px; /* Abstand zwischen den Buttons */
+    height: 50px; /* Gleiche Höhe wie die anderen Buttons */
 }
 
-.meal-item:hover .edit-button {
-    display: inline-block; /* Zeige Bearbeiten-Button bei Hover an */
-}
-
+.meal-item:hover .edit-button,
 .meal-item:hover .delete-button {
-    display: inline-block; /* Zeige Löschen-Button bei Hover an */
+    display: inline-block; /* Zeige Bearbeiten- und Löschen-Button bei Hover an */
+}
+
+/* Die Buttons immer anzeigen, wenn die Bildschirmbreite 600px oder kleiner ist */
+@media (max-width: 600px) {
+    .edit-button,
+    .delete-button {
+        display: flex; /* Immer anzeigen */
+    }
 }
 
 .button-container {
-    display: flex; /* Benutze Flexbox für die Anordnung der Buttons */
+    display: inline; /* Benutze Flexbox für die Anordnung der Buttons */
     justify-content: flex-start; /* Links ausrichten */
     align-items: center; /* Buttons vertikal zentrieren */
     margin-bottom: 20px; /* Abstand nach unten */
+    height: auto;
 }
 
 .download-button,
@@ -95,37 +103,24 @@ li {
     background-color: #A9D0F5; /* Farbe für Download/Upload */
     color: midnightblue; /* Textfarbe */
     border: none; /* Keine Ränder */
-    padding: 10px 20px; /* Innenabstand */
     margin-right: 10px; /* Abstand zwischen den Buttons */
     cursor: pointer; /* Zeiger ändern beim Hover */
-    border-radius: 5px; /* Abgerundete Ecken */
+    border-radius: 7px; /* Abgerundete Ecken */
     font-size: 16px; /* Schriftgröße */
-    height: 50px; /* Gemeinsame Höhe der Buttons */
+    
+    flex: 1; /* Flex für gleiche Breite */
     display: flex; /* Flexbox für zentrierte Inhalte */
-    align-items: center; /* Vertikale Zentrierung des Textes */
+    align-items: center; /* Buttons vertikal zentrieren */
 }
 
-.send-email-button {
-    background-color: #a354ee; /* Farbe für den E-Mail Button */
-    color: white; /* Textfarbe */
-    border: none; /* Keine Ränder */
-    padding: 10px 20px; /* Innenabstand */
-    margin-left: auto; /* Automatischer Abstand nach links, um rechts auszurichten */
-    border-radius: 5px; /* Abgerundete Ecken */
-    font-size: 16px; /* Schriftgröße */
-    height: 50px; /* Gemeinsame Höhe des E-Mail Buttons */
-    display: flex; /* Flexbox für zentrierte Inhalte */
-    align-items: center; /* Vertikale Zentrierung des Textes */
-}
+
 
 .download-button:hover,
 .upload-button:hover {
     background-color: #E2A9F3; /* Dunklere Farbe bei Hover */
 }
 
-.send-email-button:hover {
-    background-color: #1976D2; /* Dunklere Farbe bei Hover */
-}
+
 
 @media (max-width: 600px) {
     .container {
