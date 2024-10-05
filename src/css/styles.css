@@ -1,0 +1,138 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #088A85;
+    color: white;
+    letter-spacing: 1.3px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 7px;
+}
+
+button:hover {
+    background-color: #7b3edd;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.meal-list, .shopping-list {
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.meal-item {
+    position: relative; /* Ermöglicht das Positionieren des Buttons */
+}
+
+.edit-button {
+    display: none; /* Standardmäßig verstecken */
+    background-color: #088A85; /* Hintergrundfarbe für Bearbeiten-Button */
+    color: white; /* Textfarbe */
+    border: none; /* Keine Ränder */
+    cursor: pointer; /* Zeiger ändern beim Hover */
+   /* Abstand zwischen den Buttons */
+    margin-right: 3px;
+}
+
+.delete-button {
+    display: none; /* Standardmäßig verstecken */
+    background-color: #ff4c4c; /* Rot für den Lösch-Button */
+    color: white; /* Textfarbe */
+    border: none; /* Keine Ränder */
+    cursor: pointer; /* Zeiger ändern beim Hover */
+    margin-left: 3px; /* Abstand zwischen den Buttons */
+}
+
+.meal-item:hover .edit-button {
+    display: inline-block; /* Zeige Bearbeiten-Button bei Hover an */
+}
+
+.meal-item:hover .delete-button {
+    display: inline-block; /* Zeige Löschen-Button bei Hover an */
+}
+
+.button-container {
+    display: flex; /* Benutze Flexbox für die Anordnung der Buttons */
+    justify-content: flex-start; /* Links ausrichten */
+    align-items: center; /* Buttons vertikal zentrieren */
+    margin-bottom: 20px; /* Abstand nach unten */
+}
+
+.download-button,
+.upload-button {
+    background-color: #A9D0F5; /* Farbe für Download/Upload */
+    color: midnightblue; /* Textfarbe */
+    border: none; /* Keine Ränder */
+    padding: 10px 20px; /* Innenabstand */
+    margin-right: 10px; /* Abstand zwischen den Buttons */
+    cursor: pointer; /* Zeiger ändern beim Hover */
+    border-radius: 5px; /* Abgerundete Ecken */
+    font-size: 16px; /* Schriftgröße */
+    height: 50px; /* Gemeinsame Höhe der Buttons */
+    display: flex; /* Flexbox für zentrierte Inhalte */
+    align-items: center; /* Vertikale Zentrierung des Textes */
+}
+
+.send-email-button {
+    background-color: #a354ee; /* Farbe für den E-Mail Button */
+    color: white; /* Textfarbe */
+    border: none; /* Keine Ränder */
+    padding: 10px 20px; /* Innenabstand */
+    margin-left: auto; /* Automatischer Abstand nach links, um rechts auszurichten */
+    border-radius: 5px; /* Abgerundete Ecken */
+    font-size: 16px; /* Schriftgröße */
+    height: 50px; /* Gemeinsame Höhe des E-Mail Buttons */
+    display: flex; /* Flexbox für zentrierte Inhalte */
+    align-items: center; /* Vertikale Zentrierung des Textes */
+}
+
+.download-button:hover,
+.upload-button:hover {
+    background-color: #E2A9F3; /* Dunklere Farbe bei Hover */
+}
+
+.send-email-button:hover {
+    background-color: #1976D2; /* Dunklere Farbe bei Hover */
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    
+    button {
+        width: 100%; /* Schaltflächen über die gesamte Breite */
+    }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerichte & Einkaufsliste</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gerichte & Einkaufsliste</h1>
+
+        <!-- Abschnitt zum Hinzufügen von Gerichten -->
+        <section>
+            <h2>Gericht hinzufügen</h2>
+            <label for="meal-name">Gericht Name:</label>
+            <input type="text" id="meal-name" placeholder="Z.B. Spaghetti Bolognese">
+            
+            <label for="meal-ingredients">Zutaten (kommagetrennt):</label>
+            <textarea id="meal-ingredients" placeholder="Z.B. 500g Spaghetti, 300g Hackfleisch, 400g Tomaten"></textarea>
+            
+            <button onclick="addMeal()">Gericht speichern</button>
+        </section>
+
+        <!-- Abschnitt zur Anzeige gespeicherter Gerichte und Erstellung der Einkaufsliste -->
+        <section class="meal-list">
+            <h2>Gespeicherte Gerichte</h2>
+            <ul id="meal-list">
+                <li class="meal-item">
+                    <input type="checkbox" class="meal-checkbox" id="meal-1" />
+                    <label for="meal-1">Gericht 1</label>
+                </li>
+                <li class="meal-item">
+                    <input type="checkbox" class="meal-checkbox" id="meal-2" />
+                    <label for="meal-2">Gericht 2</label>
+                </li>
+                <!-- Weitere Gerichte können hier hinzugefügt werden -->
+            </ul>
+        </section>
+        
+
+        <section class="shopping-list">
+            <h2>Wocheneinkaufsliste</h2>
+            <button onclick="generateShoppingList()">Einkaufsliste generieren</button>
+            <ul id="shopping-list"></ul>
+            <!-- Button zum Versenden der Einkaufsliste per E-Mail -->
+            <button class="send-email-button" onclick="sendEmail()">Einkaufsliste per E-Mail senden</button>
+        </section>
+
+        <!-- Buttons für Download und Upload der Gerichte -->
+        <div class="button-container">
+            <button class="download-button" onclick="downloadMeals()">Gerichte sichern</button>
+            <input type="file" class="upload-button" id="file-input" accept=".json" onchange="importFromFile(event)">
+        </div>
+    </div>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>
