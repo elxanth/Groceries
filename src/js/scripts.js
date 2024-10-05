@@ -143,24 +143,21 @@ function sendEmail() {
     // Einkaufsliste in ein Array von Strings konvertieren
     const items = Array.from(shoppingList.querySelectorAll('li')).map(li => li.textContent);
 
-    // Erstelle den HTML-Body der E-Mail mit einer Liste (ul/li)
-    let emailBody = `
-        <h2>Einkaufsliste</h2>
-        <ul>
-    `;
+    // Erstelle den Text für den Body der E-Mail
+    let emailBody = "Einkaufsliste:\n\n";
 
+    // Füge jedes Element der Einkaufsliste als Aufzählungspunkt hinzu
     items.forEach(item => {
-        emailBody += `<li>${item}</li>`;
+        emailBody += `• ${item}\n`;
     });
 
-    emailBody += '</ul>';
-
-    // Erstelle den Mailto-Link mit dem HTML-Body
+    // Erstelle den Mailto-Link mit dem reinen Text-Body
     const mailtoLink = `mailto:?subject=Einkaufsliste&body=${encodeURIComponent(emailBody)}`;
 
     // Öffne das Mailprogramm des Benutzers mit dem generierten Link
     window.location.href = mailtoLink;
 }
+
 
 
 // Funktion zum Herunterladen der gespeicherten Gerichte
