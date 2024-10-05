@@ -17,6 +17,14 @@ input, select, textarea {
     padding: 8px;
     margin-top: 5px;
 }
+#meal-ingredients {
+    width: 100%; /* Breite auf 100% des Containers setzen */
+    height: 150px; /* Höhe des Textfelds einstellen */
+    padding: 10px; /* Innenabstand für mehr Platz innerhalb des Textfelds */
+    font-size: 16px; /* Schriftgröße im Textfeld */
+    box-sizing: border-box; /* Bezieht Padding und Border in die Gesamtgröße ein */
+}
+
 
 button {
     margin-top: 10px;
