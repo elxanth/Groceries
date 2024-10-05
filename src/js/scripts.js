@@ -137,16 +137,31 @@ function generateShoppingList() {
 
 // Funktion zum Senden der E-Mail
 function sendEmail() {
+    // Elemente von der Einkaufsliste holen
     const shoppingList = document.getElementById('shopping-list');
-    const shoppingListItems = shoppingList.innerHTML; // Inhalt der Einkaufsliste abrufen
-
-    const subject = encodeURIComponent("Einkaufsliste");
-    const body = encodeURIComponent(`Hier ist meine Einkaufsliste:\n\n${shoppingListItems}`);
-    const mailtoLink = `mailto:?subject=${subject}&body=${body}`;
     
-    // Den E-Mail-Client öffnen
+    // Einkaufsliste in ein Array von Strings konvertieren
+    const items = Array.from(shoppingList.querySelectorAll('li')).map(li => li.textContent);
+
+    // Erstelle den HTML-Body der E-Mail mit einer Liste (ul/li)
+    let emailBody = `
+        <h2>Einkaufsliste</h2>
+        <ul>
+    `;
+
+    items.forEach(item => {
+        emailBody += `<li>${item}</li>`;
+    });
+
+    emailBody += '</ul>';
+
+    // Erstelle den Mailto-Link mit dem HTML-Body
+    const mailtoLink = `mailto:?subject=Einkaufsliste&body=${encodeURIComponent(emailBody)}`;
+
+    // Öffne das Mailprogramm des Benutzers mit dem generierten Link
     window.location.href = mailtoLink;
 }
+
 
 // Funktion zum Herunterladen der gespeicherten Gerichte
 function downloadMeals() {
